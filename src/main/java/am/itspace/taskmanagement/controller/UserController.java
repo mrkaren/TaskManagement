@@ -1,6 +1,5 @@
 package am.itspace.taskmanagement.controller;
 
-import am.itspace.taskmanagement.entity.Role;
 import am.itspace.taskmanagement.entity.User;
 import am.itspace.taskmanagement.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +8,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @Controller
@@ -28,7 +24,7 @@ public class UserController {
     }
 
     @GetMapping("/users/add")
-    public String addUserPage(){
+    public String addUserPage() {
         return "addUser";
     }
 

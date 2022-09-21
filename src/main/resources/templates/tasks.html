@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show All Tasks</title>
+</head>
+<body>
+
+<table>
+   <tr>
+       <th>id</th>
+       <th>title</th>
+       <th>description</th>
+       <th>deadline</th>
+       <th>status</th>
+       <th>user</th>
+   </tr>
+
+    <tr th:each="task: ${tasks}">
+        <td th:text="${task.id}"></td>
+        <td th:text="${task.title}"></td>
+        <td th:text="${task.description}"></td>
+        <td th:text="${task.deadline}"></td>
+        <td th:text="${task.status.name()}"></td>
+        <td th:text="${task.user eq null ? 'unassigned' : task.user.name}"></td>
+    </tr>
+</table>
+
+</body>
+</html>
