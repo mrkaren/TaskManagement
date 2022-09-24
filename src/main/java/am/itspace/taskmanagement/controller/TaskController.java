@@ -10,8 +10,10 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class TaskController {
@@ -40,8 +42,28 @@ public class TaskController {
     @GetMapping("/tasks")
     public String tasksPage(ModelMap modelMap) {
         List<Task> tasks = taskRepository.findAll();
+        List<User> users = userRepository.findAll();
         modelMap.addAttribute("tasks", tasks);
+        modelMap.addAttribute("users", users);
         return "tasks";
     }
 
+    @PostMapping("/tasks/changeUser")
+    public String changeUser(@RequestParam("userId") int userId, @RequestParam("taskId") int taskId) {
+        Optional<Task> taskOptional = taskRepository.findById(taskId);
+        Optional<User> userOptional = userRepository.findById(userId);
+        if (taskOptional.isPresent() && userOptional.isPresent()) {
+            Task task = taskOptional.get();
+            User user = userOptional.get();
+            if (task.getUser() != user) {
+                task.setUser(user);
+                taskRepository.save(task);
+            }
+        }else if(taskOptional.isPresent() && userId == 0){
+            taskOptional.get().setUser(null);
+            taskRepository.save(taskOptional.get());
+        }
+        return "redirect:/tasks";
+
+    }
 }
