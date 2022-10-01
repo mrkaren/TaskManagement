@@ -21,6 +21,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class UserController {
@@ -33,6 +34,11 @@ public class UserController {
 
     @Value("${task.management.images.folder}")
     private String folderPath;
+
+    @GetMapping("/user")
+    public String userHome() {
+        return "user";
+    }
 
     @GetMapping("/users")
     public String users(ModelMap modelMap) {
@@ -48,14 +54,25 @@ public class UserController {
 
     @PostMapping("/users/add")
     public String addUser(@ModelAttribute User user,
-                          @RequestParam("userImage") MultipartFile file) throws IOException {
+                          @RequestParam("userImage") MultipartFile file,
+                          ModelMap modelMap) throws IOException {
+        Optional<User> byEmail = userRepository.findByEmail(user.getEmail());
+        if (byEmail.isPresent()) {
+            modelMap.addAttribute("errorMessageEmail", "Email already in use");
+            return "addUser";
+        }
         if (!file.isEmpty() && file.getSize() > 0) {
-            String fileName = System.currentTimeMillis() + "_" +file.getOriginalFilename();
+            if (file.getContentType() != null && !file.getContentType().contains("image")) {
+                modelMap.addAttribute("errorMessageFile", "Please choose only image");
+                return "addUser";
+            }
+            String fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
             File newFile = new File(folderPath + File.separator + fileName);
             file.transferTo(newFile);
             user.setPicUrl(fileName);
         }
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+
         userRepository.save(user);
 
         return "redirect:/users";
@@ -68,7 +85,7 @@ public class UserController {
     }
 
     @GetMapping("/users/delete")
-    public String delete(@RequestParam("id") int id){
+    public String delete(@RequestParam("id") int id) {
         userRepository.deleteById(id);
         return "redirect:/users";
     }

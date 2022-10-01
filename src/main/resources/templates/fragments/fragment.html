@@ -78,7 +78,8 @@
                             <th:block th:if="${currentUser != null}">
                                 <a href="/#" class="nav-link py-0" data-toggle="dropdown" aria-expanded="false">
                                     <div class="media">
-                                        <img th:if="${currentUser.picUrl != null}" th:src="@{/users/getImage(fileName=${currentUser.picUrl})}" alt=""
+                                        <img th:if="${currentUser.picUrl != null}"
+                                             th:src="@{/users/getImage(fileName=${currentUser.picUrl})}" alt=""
                                              class="d-flex img-fluid rounded-circle"
                                              width="29">
                                         <img th:if="${currentUser.picUrl == null}" src="/images/author.jpg" alt=""
@@ -95,7 +96,7 @@
 
                             </th:block>
                             <th:block th:if="${currentUser == null}">
-                                <a href="/login">Login</a>
+                                <a href="/loginPage">Login</a>
                             </th:block>
                         </li>
 
@@ -113,26 +114,30 @@
         <div class="site-width">
             <!-- START: Menu-->
             <ul id="side-menu" class="sidebar-menu">
-                <li class="dropdown"><a href="/#"><i class="icon-home mr-1"></i> Tasks</a>
+                <li class="dropdown" th:if="${currentUser != null}"><a href="/#"><i class="icon-home mr-1"></i>
+                    Tasks</a>
                     <ul>
-                        <li class=""><a href="/tasks"><i class="icon-rocket"></i>Show all Tasks</a></li>
-                        <li><a href="/tasks/add"><i class="icon-layers"></i> Add new task</a></li>
+                        <li th:class="${currentUrl == '/tasks' ? 'active' : ''}" th:if="${currentUser != null}"><a
+                                href="/tasks"><i class="icon-rocket"></i>Show all Tasks</a></li>
+                        <li th:class="${currentUrl == '/tasks/add' ? 'active' : ''}"
+                            th:if="${currentUser != null && currentUser.role.name == 'MANAGER'}"><a href="/tasks/add"><i
+                                class="icon-layers"></i> Add new task</a></li>
                     </ul>
                 </li>
 
-                <li class="dropdown"><a href="/#"><i class="icon-home mr-1"></i> Users</a>
+                <li class="dropdown"><a href="/#"><i class="icon-home mr-1"></i>Users</a>
                     <ul>
-                        <li class=""><a href="/users"><i class="icon-rocket"></i>Show all Users</a></li>
-                        <li><a href="/users/add"><i class="icon-layers"></i> Add new user</a></li>
+                        <li th:class="${currentUrl == '/users' ? 'active' : ''}"
+                            th:if="${currentUser != null && currentUser.role.name == 'MANAGER'}"><a href="/users"><i
+                                class="icon-rocket"></i>Show all Users</a></li>
+                        <li th:class="${currentUrl == '/users/add' ? 'active' : ''}"
+                            th:if="${currentUser == null || (currentUser != null && currentUser.role.name== 'MANAGER')}">
+                            <a href="/users/add"><i class="icon-layers"></i> Add new user</a></li>
                     </ul>
                 </li>
 
             </ul>
-            <!-- END: Menu-->
-            <ol class="breadcrumb bg-transparent align-self-center m-0 p-0 ml-auto">
-                <li class="breadcrumb-item"><a href="index.html#">Application</a></li>
-                <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
+
         </div>
     </div>
     <!-- END: Main Menu-->

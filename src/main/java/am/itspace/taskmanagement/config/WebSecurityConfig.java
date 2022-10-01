@@ -23,6 +23,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .formLogin()
+                .loginPage("/loginPage")
+//                .usernameParameter("username")
+//                .passwordParameter("password")
+                .loginProcessingUrl("/login")
+                .failureUrl("/loginPage?error=true")
+                .defaultSuccessUrl("/loginSuccess")
                 .and()
                 .logout()
                 .logoutSuccessUrl("/")
@@ -31,8 +37,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/tasks/add").hasAuthority(Role.MANAGER.name())
                 .antMatchers("/tasks").authenticated()
                 .antMatchers("/users").hasAuthority(Role.MANAGER.name())
+                .antMatchers("/users/delete").hasAuthority(Role.MANAGER.name())
+                .antMatchers("/manager").hasAuthority(Role.MANAGER.name())
+                .antMatchers("/user").hasAuthority(Role.USER.name())
                 .anyRequest()
-                .permitAll();
+                .permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage("/accessDenied");
     }
 
 
