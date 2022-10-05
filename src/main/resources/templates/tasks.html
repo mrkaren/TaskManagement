@@ -8,6 +8,8 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
 
     <th:block th:insert="fragments/fragment::headerImport"></th:block>
+
+
 </head>
 <!-- END Head-->
 
@@ -55,7 +57,7 @@
                     <th>user</th>
                 </tr>
 
-                <tr th:each="task: ${tasks}">
+                <tr th:each="task: ${tasks.content}">
                     <td th:text="${task.id}"></td>
                     <td th:text="${task.title}"></td>
                     <td>
@@ -70,7 +72,8 @@
                             <input type="hidden" name="taskId" th:value="${task.id}">
                             <select name="userId">
                                 <option value="0">unassigned</option>
-                                <option th:selected="${task.user eq user}" th:each="user: ${users}" th:value="${user.id}" th:text="${user.name +' '+user.surname}"></option>
+                                <option th:selected="${task.user eq user}" th:each="user: ${users}"
+                                        th:value="${user.id}" th:text="${user.name +' '+user.surname}"></option>
                             </select>
                             <input id="changeUserBtn" type="submit" value="change">
                         </form>
@@ -79,6 +82,12 @@
 
                 </tr>
             </table>
+            <div th:if="${tasks.totalPages > 0}" class="pagination"
+                 th:each="pageNumber : ${pageNumbers}">
+                <a th:href="@{/tasks(size=${tasks.size}, page=${pageNumber})}"
+                   th:text="${pageNumber}"
+                   th:class="${pageNumber==tasks.number + 1} ? active"></a>
+            </div>
         </div>
 
     </div>

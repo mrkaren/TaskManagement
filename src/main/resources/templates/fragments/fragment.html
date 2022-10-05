@@ -74,6 +74,9 @@
                                aria-expanded="false"><i class="icon-magnifier h4"></i>
                             </a>
                         </li>
+                        <li>
+                            <a href="?lang=hy">Հայերեն</a> | <a href="?lang=ru">Русский</a>| <a href="?lang=en">English</a>
+                        </li>
                         <li class="dropdown user-profile align-self-center d-inline-block">
                             <th:block th:if="${currentUser != null}">
                                 <a href="/#" class="nav-link py-0" data-toggle="dropdown" aria-expanded="false">
@@ -115,7 +118,7 @@
             <!-- START: Menu-->
             <ul id="side-menu" class="sidebar-menu">
                 <li class="dropdown" th:if="${currentUser != null}"><a href="/#"><i class="icon-home mr-1"></i>
-                    Tasks</a>
+                    <span th:text="#{menu.tasks}"></span></a>
                     <ul>
                         <li th:class="${currentUrl == '/tasks' ? 'active' : ''}" th:if="${currentUser != null}"><a
                                 href="/tasks"><i class="icon-rocket"></i>Show all Tasks</a></li>

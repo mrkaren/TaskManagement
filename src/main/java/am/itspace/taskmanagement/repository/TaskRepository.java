@@ -1,6 +1,8 @@
 package am.itspace.taskmanagement.repository;
 
 import am.itspace.taskmanagement.entity.Task;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
@@ -8,6 +10,6 @@ import java.util.List;
 public interface TaskRepository extends JpaRepository<Task, Integer> {
 
 
-    List<Task> findAllByUser_Id(int userId);
+    Page<Task> findAllByUser_Id(int userId, Pageable pageable);
 
 }

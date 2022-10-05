@@ -128,26 +128,26 @@ File: Main Style
 
 .semi-dark {
     --sidebarbg: #060818;
-    --sidebarcolor: rgba(255,255,255,0.8);
-    --sidebarbordercolor: rgba(255,255,255,0.1);
+    --sidebarcolor: rgba(255, 255, 255, 0.8);
+    --sidebarbordercolor: rgba(255, 255, 255, 0.1);
     --sidebaractivecolor: #4c75f2;
     --sidebarheadingcolor: #fff;
     --sidebarheadingbackground: rgba(59, 63, 92, 0.35);
     --logobg: #060818;
-    --logocolor: rgba(255,255,255,0.8);
+    --logocolor: rgba(255, 255, 255, 0.8);
 }
 
 .dark {
     --sidebarbg: #101329;
-    --sidebarcolor: rgba(255,255,255,0.8);
-    --sidebarbordercolor: rgba(255,255,255,0.1);
+    --sidebarcolor: rgba(255, 255, 255, 0.8);
+    --sidebarbordercolor: rgba(255, 255, 255, 0.1);
     --sidebaractivecolor: #17b3a3;
     --sidebarheadingcolor: #fff;
     --sidebarheadingbackground: rgba(59, 63, 92, 0.35);
     --logobg: #101329;
-    --logocolor: rgba(255,255,255,0.8);
+    --logocolor: rgba(255, 255, 255, 0.8);
     --headerbackground: #101329;
-    --headercolor: rgba(255,255,255,0.8);
+    --headercolor: rgba(255, 255, 255, 0.8);
     --searchcolor: #fff;
     --primarycolor: #17b3a3;
     --bodycolor: #8283a0;
@@ -166,15 +166,15 @@ File: Main Style
 
 .horizontal-menu.dark {
     --sidebarbg: #101329;
-    --sidebarcolor: rgba(255,255,255,0.8);
-    --sidebarbordercolor: rgba(255,255,255,0.1);
+    --sidebarcolor: rgba(255, 255, 255, 0.8);
+    --sidebarbordercolor: rgba(255, 255, 255, 0.1);
     --sidebaractivecolor: #4c75f2;
     --sidebarheadingcolor: #fff;
     --sidebarheadingbackground: #060818;
     --logobg: #101329;
-    --logocolor: rgba(255,255,255,0.8);
+    --logocolor: rgba(255, 255, 255, 0.8);
     --headerbackground: #101329;
-    --headercolor: rgba(255,255,255,0.8);
+    --headercolor: rgba(255, 255, 255, 0.8);
     --headerbordercolor: rgba(255, 255, 255, 0.1);
     --searchcolor: #fff;
     --primarycolor: #17b3a3;
@@ -186,37 +186,37 @@ File: Main Style
 
 .horizontal-menu.semi-dark {
     --sidebarbg: #334f7f;
-    --sidebarcolor: rgba(255,255,255,0.8);
+    --sidebarcolor: rgba(255, 255, 255, 0.8);
     --sidebarbordercolor: rgba(72, 94, 144, 0.16);
     --sidebaractivecolor: #4c75f2;
     --sidebarheadingcolor: #6c757d;
     --dropdowncolor: #6c757d;
     --sidebarheadingbackground: #fafafa;
     --logobg: #060818;
-    --logocolor: rgba(255,255,255,0.8);
-    --headerbordercolor: rgba(255,255,255,0.16);
+    --logocolor: rgba(255, 255, 255, 0.8);
+    --headerbordercolor: rgba(255, 255, 255, 0.16);
     --headerbackground: #1e3d73;
-    --headercolor: rgba(255,255,255,0.8);
+    --headercolor: rgba(255, 255, 255, 0.8);
     --searchcolor: #fff;
     --bodybackground: #fafafa;
 }
 
 .gradient {
-    --sidebarbg: rgba(0,0,0,0.2);
+    --sidebarbg: rgba(0, 0, 0, 0.2);
     --sidebarcolor: #fff;
-    --sidebarbordercolor: rgba(255,255,255,0.1);
+    --sidebarbordercolor: rgba(255, 255, 255, 0.1);
     --sidebaractivecolor: #fff;
-    --sidebarheadingcolor: rgba(255,255,255,0.7);
-    --sidebarheadingbackground: rgba(0,0,0,0.2);
-    --headerbackground: rgba(2,0,36,1);
-    --headercolor: rgba(255,255,255,0.8);
-    --headerbordercolor: rgba(255,255,255,0.1);
+    --sidebarheadingcolor: rgba(255, 255, 255, 0.7);
+    --sidebarheadingbackground: rgba(0, 0, 0, 0.2);
+    --headerbackground: rgba(2, 0, 36, 1);
+    --headercolor: rgba(255, 255, 255, 0.8);
+    --headerbordercolor: rgba(255, 255, 255, 0.1);
     --searchcolor: #fff;
     --primarycolor: #396e94;
     --bodycolor: #fff;
     --bodybackground: #19606F;
     --bordercolor: rgba(255, 255, 255, 0.2);
-    --mainbackground: rgba(0,0,0,0.2);
+    --mainbackground: rgba(0, 0, 0, 0.2);
     --secondary: #fff;
     --dark: #fff;
 }
@@ -1983,12 +1983,12 @@ footer.site-footer {
     }
 
     5%,
-  95% {
+    95% {
         box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
     }
 
     10%,
-  59% {
+    59% {
         box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
     }
 
@@ -2011,12 +2011,12 @@ footer.site-footer {
     }
 
     5%,
-  95% {
+    95% {
         box-shadow: 0 -0.83em 0 -0.4em, 0 -0.83em 0 -0.42em, 0 -0.83em 0 -0.44em, 0 -0.83em 0 -0.46em, 0 -0.83em 0 -0.477em;
     }
 
     10%,
-  59% {
+    59% {
         box-shadow: 0 -0.83em 0 -0.4em, -0.087em -0.825em 0 -0.42em, -0.173em -0.812em 0 -0.44em, -0.256em -0.789em 0 -0.46em, -0.297em -0.775em 0 -0.477em;
     }
 
@@ -5869,4 +5869,21 @@ path.domain {
     .header-chart {
         float: left;
     }
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 5px 5px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: gray;
+    color: white;
+    border-radius: 2px;
 }
