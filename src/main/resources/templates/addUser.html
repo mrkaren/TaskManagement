@@ -96,7 +96,7 @@
 
                                         <div class="form-group row">
                                             <label for="userImage" class="col-sm-2 col-form-label">User Image</label>
-                                            <input type="file" name="userImage" id="userImage" accept="image/*">
+                                            <input type="file" multiple name="userImage" id="userImage" accept="image/*">
                                             <br th:if="${errorMessageFile != null}" >
                                             <span style="color: red" th:if="${errorMessageFile != null}" th:text="${errorMessageFile}"></span>
                                         </div>
