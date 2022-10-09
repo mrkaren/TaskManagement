@@ -28,10 +28,6 @@ public class TaskService {
         taskRepository.save(task);
     }
 
-    public List<Task> findAll() {
-        return taskRepository.findAll();
-    }
-
     public Page<Task> findTasksByUserRole(User user, Pageable pageable) {
         return user.getRole() == Role.USER ?
                 taskRepository.findAllByUser_Id(user.getId(), pageable)
